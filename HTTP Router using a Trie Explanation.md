@@ -7,20 +7,20 @@ Paths such as “/foo/bar/hello” or “/foo/bar/hello/world” can be added to
 
 Four extensive test cases and their output are included in the code.
 
-# Time and Complexity Analysis 
+## Time and Complexity Analysis 
 
-For the class `RouteTrieNode:`
+### For the class `RouteTrieNode:`
 
 - the insert method’s time and space complexity are both `O(1)`.
 
-For the class class `RouteTrie:`
+### For the class class `RouteTrie:`
 
 - the insert’s method time and space complexity are both `O(n)`, where n is the number path pieces in the url. For example: “/foo/bar/hello/world” yields n = 4.   
 
 - the find’s method time complexity is `O(n)` (n as defined above). The space complexity is `O(1)`.
 
 
-For the class `Router`:
+### For the class `Router`:
 
 -the add_handler’s method time and space complexity are both `O(n)` (n as defined above).
 
