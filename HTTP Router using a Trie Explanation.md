@@ -1,4 +1,4 @@
-## HTTP Router using a Trie
+# HTTP Router using a Trie
 
 This program uses the 3 supplied Udacity classes and suggested methods. The program uses the Trie data structure to build a framework for a HTTP Router with response handlers in the form of strings. The key data structure used in the Trie here is a Python dictionary. The dictionary contains keys which link to a node’s descendant nodes. Python dictionaries are dynamic, so a given node in the Trie can have a variable number of keys and hence descendant nodes. Upon researching Tries, some implementations suggested using a fixed number of keys for every node, For example: 26 keys corresponding to the letters in the alphabet. This approach potentially can waste storage space along with limiting the data stored that can be by referenced by the keys to a fixed number of characters.
 
