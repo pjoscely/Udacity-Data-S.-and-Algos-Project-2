@@ -1,6 +1,6 @@
 ## Dutch National Flag Problem
 
-Given an input array consisting on only 0, 1, and 2, sort the array in a single traversal. NO use OF any sorting function that Python provides is allowed.
+Given an input array consisting on only 0, 1, and 2, sort the array in a single traversal. N0 use of any sorting function that Python provides is allowed.
 
 Note: `O(n)` does not necessarily mean single-traversal. For example: if you traverse the array twice, that would still be an `O(n)` solution but it will not count as single traversal.
 
