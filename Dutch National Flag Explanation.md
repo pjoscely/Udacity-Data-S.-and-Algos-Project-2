@@ -8,7 +8,7 @@ According to Wikipedia:
 
 “The Dutch national flag problem (DNF) is a computer science programming problem proposed by Edsger Dijkstra.The flag of the Netherlands consists of three colors: red, white and blue. Given balls of these three colors arranged randomly in a line (the actual number of balls does not matter), the task is to arrange them such that all balls of the same color are together and their collective color groups are in the correct order.”
 
-To solve this problem, Dijkstra algorithm in pseudo-algorithm form is used:
+To solve this problem, Dijkstra's algorithm in pseudo-algorithm form is used:
 
 procedure three-way-partition(A : array of values, mid : value):
     i ← 0
