@@ -55,42 +55,42 @@ class RouteTrieNode:
         self.children = {}
     
     def insert(self, path_piece, handler):
-         self.children[path_piece] = RouteTrieNode()
+         self.children[path_piece] = RouteTrieNode(handler)
          
     def __repr__(self):
         return str(self.children)
 
  
 class RouteTrie:
-    def __init__(self):
-        self.root = RouteTrieNode("root handler")
+    def __init__(self,root_handler = None):
+        self.root = RouteTrieNode(root_handler)
 
      
-    def insert(self, path, handler):
+    def insert(self, path_pieces, handler):
         # Make sure you assign the handler to only the leaf (deepest) node of this path
         #Set current node to root
         current_node = self.root
         #Set length of path
-        for path_piece in path:
-            if path_piece not in current_node.children.keys():
-                current_node.children[path_piece] = RouteTrieNode('not found handler')
+        for path_piece in path_pieces:
+            if path_piece not in current_node.children:
+                current_node.children[path_piece] = RouteTrieNode(None)
             #Advance current node
             current_node = current_node.children[path_piece]
         #Insert handler tp current node
         current_node.handler = handler
         
 
-    def find(self, path):
+    def find(self, path_pieces):
         # Starting at the root, navigate the Trie to find a match for this path
         # Return the handler for a match, or None for no match 
         #This handles the root "/" returns "root handler"
-        if len(path) == 0:
-            self.root.handler
+        if len(path_pieces) == 0:
+            return self.root.handler
         #Set current node to root
         current_node = self.root
-        for path_piece in path:
-            if path_piece not in current_node.children.keys():
-                return "not found handler"
+        for path_piece in path_pieces:
+            if path_piece not in current_node.children:
+                return None 
             #Advance current node
             current_node =  current_node = current_node.children[path_piece]
         #If successfully reached the path's end return current node's children handler
@@ -101,7 +101,7 @@ class RouteTrie:
       
 class Router:
     def __init__(self, handler):
-        self.route_trie = RouteTrie()
+        self.route_trie = RouteTrie(handler)
         self.route_trie.root.handler = handler
 
     def add_handler(self, path, handler):
@@ -111,12 +111,21 @@ class Router:
         
 
     def lookup(self,path):
+        #if path == "/":
+        #return "root handler"
         # lookup path (by parts) and return the associated handler
         path_pieces = self.split_path(path)
         return  self.route_trie.find(path_pieces)
-        
+    #helper method to return a list of path pieces from a url
+    # "/" return [] 
+    #“/foo/bar/hello/world” return [“foo", "bar". "hello", "world”]
     def split_path(self, path):
-        return path[1:]#This removes the initial empty string = ""
+        if path == "/":
+            return []
+        path_pieces = path.split('/')
+        #remove the initial empty string from path_pieces 
+        path_pieces.remove('')
+        return path_pieces
     
 # Test 0   
 router1 = Router("root handler") 
