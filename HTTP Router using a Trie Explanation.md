@@ -10,19 +10,19 @@ Four extensive test cases and their output are included in the code.
 
 ### For the class `RouteTrieNode:`
 
-- the insert method’s time and space complexity are both `O(1)`.
+- the insert method’s time and space complexity are both `O(1)`. This is because the insert method always inserts a single node to the Trie
 
 ### For the class class `RouteTrie:`
 
-- the insert’s method time and space complexity are both `O(n)`, where n is the number path pieces in the url. For example: “/foo/bar/hello/world” yields n = 4.   
+- the insert’s method time and space complexity are both `O(n)`, where n is the number path pieces in the url. For example: “/foo/bar/hello/world” yields n = 4. The insert loops through a list of piece strings e.g. [“foo", "bar". "hello", "world”] inserting into the Trie where needed. The method then has `O(n)` time complexity. Since the insert method can potentially add n new nodes to the Trie, its space complexity is also `O(n)`. 
 
-- the find’s method time complexity is `O(n)` (n as defined above). The space complexity is `O(1)`.
+- the find’s method time complexity is `O(n)` (n as defined above). Like the insert method, the find method starts at the root of the Trie attempting to the match the list of piece strings e.g. [“foo", "bar". "hello", "world”]. A full match then requires a time complexity of `O(n)`. Since the find method internal workings do not require scale with the size of the piece strings list its space complexity is `O(n)`.
 
 
 ### For the class `Router`:
 
--the add_handler’s method time and space complexity are both `O(n)` (n as defined above).
+-the add_handler’s method time and space complexity are both `O(n)` (n as defined above). This follows from the add_handler directly calling the `RouteTrie's` insert method.
 
--the lookup method’s time complexity is `O(n)` (n as defined above). The space complexity is `O(1)`.
+-the lookup method’s time complexity is `O(n)` (n as defined above). The space complexity is `O(1)`. This follows from the  lookup directly calling the `RouteTrie's` find method.
 
-- the split_path’s method time and space complexity are both `O(n)` (n as defined above).
+- the split_path’s method time and space complexity are both `O(n)` (n as defined above). The split_path is a helper method whic takes a url and returns a list of path pieces. For example: “/foo/bar/hello/world” yields a list of piece strings e.g. [“foo", "bar". "hello", "world”]. The split_path calls the Python method split("/") on the url yielding the required list. Thus time and space complexity are both `O(n)`, where n is the number path pieces in the url. 
