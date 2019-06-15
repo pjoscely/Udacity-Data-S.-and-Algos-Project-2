@@ -8,7 +8,7 @@ This project was submitted Charles Joscelyne as part of the Nanodegree At Udacit
 
 As part of Udacity Honor code, your submissions must be your own work, hence submitting this project as yours will cause you to break the Udacity Honor Code and the suspension of your account.
 
-Please credit this source should it help you in any complete your Udacity projects.
+Please credit this source should it help you in anyway to complete your Udacity projects.
 
 Copyright (c) 2019 Charles Joscelyne
 
