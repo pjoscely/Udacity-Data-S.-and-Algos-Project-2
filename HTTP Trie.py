@@ -83,7 +83,7 @@ class RouteTrie:
     def find(self, path_pieces):
         # Starting at the root, navigate the Trie to find a match for this path
         # Return the handler for a match, or None for no match 
-        #This handles the root "/" returns "root handler"
+        #This handles the root "/" returns root.handler
         if len(path_pieces) == 0:
             return self.root.handler
         #Set current node to root
@@ -175,10 +175,10 @@ print(router3.lookup("/about"))
 root handler
 ********** Test 1 ***********
 root handler
-not found handler
+None
 about handler
-not found handler
-not found handler
+None
+None
 me handler
 about handler
 ********** Test 2 ***********
@@ -187,11 +187,11 @@ udacity handler
 hello handler
 udacity handler
 world handler
-not found handler
-not found handler
+None
+None
 ********** Test 3 ***********
 root handler
 bichon frise handler
 four legs handler
-not found handler
+None
 """
